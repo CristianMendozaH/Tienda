@@ -1,0 +1,227 @@
+// Import Bootstrap functions and variables if you use them for theming
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+
+// --- Main Variables ---
+$primary-color: #8b4450;
+$secondary-color: #ffb6c1;
+$background-light: #f5f5f5;
+$white: #fff;
+$border-color: #e0e0e0;
+
+// --- Global Styles ---
+:host {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+// --- Layout Structure ---
+.d-flex {
+  display: flex;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+// --- Sidebar Styles ---
+.sidebar {
+  width: 250px;
+  background-color: $background-light;
+  border-right: 3px solid $primary-color;
+  display: flex;
+  flex-direction: column;
+
+  .logo-section {
+    padding: 20px;
+    text-align: center;
+    background-color: $white;
+    border-bottom: 3px solid $primary-color;
+
+    .logo-title {
+      color: $primary-color;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .logo-img {
+      width: 140px;
+      height: 140px; // Hacer que el alto sea igual al ancho
+      border-radius: 50%; // Esto lo hace circular
+      object-fit: cover; // Asegura que la imagen cubra el círculo sin distorsionarse
+      border: 3px solid $primary-color; // Un borde para destacarlo
+    }
+  }
+
+  .menu {
+    flex: 1;
+    overflow-y: auto;
+
+    .menu-item {
+      padding: 15px 20px;
+      color: $primary-color;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px solid $border-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #ffe4e9;
+      }
+
+      &.active {
+        background-color: $white;
+        border-left: 4px solid $primary-color;
+        padding-left: 16px; // Adjust padding for border
+      }
+
+      .menu-item-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+
+    .arrow {
+      font-size: 14px;
+      transition: transform 0.3s;
+      &.rotate {
+        transform: rotate(180deg);
+      }
+    }
+
+    .submenu {
+      display: none;
+      background-color: $white;
+      border-left: 4px solid $secondary-color;
+
+      &.show {
+        display: block;
+      }
+
+      .submenu-item {
+        padding: 12px 20px 12px 45px;
+        color: $primary-color;
+        cursor: pointer;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #ffe4e9;
+        }
+      }
+    }
+  }
+}
+
+
+// --- Main Content Styles ---
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    background: linear-gradient(135deg, #ffb6c1 0%, #ffc8d3 100%);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid #ff9fb0;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .user-name {
+      text-align: right;
+      .user-name-text {
+        color: $primary-color;
+        font-weight: 600;
+      }
+      .user-role {
+        color: darken($primary-color, 10%);
+        font-size: 12px;
+      }
+    }
+
+    .user-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: $primary-color;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      border: 3px solid $white;
+    }
+  }
+
+  .content-area {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: #fafafa;
+
+    .page {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+
+    .page-title {
+      color: $primary-color;
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .dashboard-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffd4e0;
+      border-radius: 20px;
+      padding: 60px;
+      max-width: 900px;
+      margin: 0 auto;
+
+      img {
+          max-width: 250px; // Ajusta el tamaño máximo del círculo
+          height: 250px;    // Mismo ancho para círculo
+          border-radius: 50%; // Hace la imagen circular
+          object-fit: cover; // Asegura que la imagen cubra el círculo
+          border: 5px solid $primary-color; // Un borde para destacarlo
+      }
+    }
+  }
+}
+
+// Placeholder styles for icons - replace with your icon library
+.menu-icon-placeholder, .user-icon-placeholder {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc; // Placeholder color
+    border-radius: 3px;
+}

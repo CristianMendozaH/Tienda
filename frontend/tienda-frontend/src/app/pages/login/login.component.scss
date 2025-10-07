@@ -1,4 +1,4 @@
-// Contenedor principal que encapsula todos los estilos del componente.
+/* Contenedor principal que encapsula todos los estilos del componente. */
 .container-wrapper {
   * {
     margin: 0;
@@ -6,20 +6,18 @@
     box-sizing: border-box;
   }
 
-  // Estilos para que el componente ocupe toda la pantalla
+  /* Estilos para que el componente ocupe toda la pantalla */
   display: flex;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: white;
 
   .left-section {
     flex: 1;
-    // IMAGEN DE FONDO INTEGRADA
     background-image: url('/assets/images/tienda-fondo.jpg');
     background-size: cover;
     background-position: center;
@@ -38,30 +36,25 @@
     left: 0;
     right: 0;
     bottom: 0;
-    // Un degradado suave para que el texto resalte sobre el fondo
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 218, 224, 0.1));
+    background: linear-gradient(135deg, rgba(255,182,193,0.3) 0%, rgba(255,218,224,0.3) 100%);
   }
 
+  /* --- ESTILOS ACTUALIZADOS --- */
   .showcase {
     position: relative;
     z-index: 1;
     text-align: center;
     max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(5px);
-  }
-
-  .showcase-image {
-    display: none; // Ocultamos la imagen vacía del HTML
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    padding: 20px 30px; /* Espacio interior */
+    border-radius: 15px; /* Bordes redondeados */
   }
 
   .showcase-text {
-    color: #333;
-    font-size: 28px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    color: #FFFFFF; /* Color de texto blanco puro */
+    font-size: 32px; /* Tamaño de letra más grande */
+    font-weight: bold; /* Letra en negrita */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra para realce */
   }
 
   .right-section {
@@ -95,20 +88,19 @@
   .logo {
     width: 120px;
     height: 120px;
+    background-image: url('/assets/images/logo-mishell.jpg');
+    background-size: cover;
+    background-position: center;
     border-radius: 50%;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 30px rgba(255,105,180,0.3);
-    // IMAGEN DEL LOGO INTEGRADA
-    background-image: url('/assets/images/logo-mishell.jpg');
-    background-size: cover;
-    background-position: center;
   }
 
   .logo-text {
-    display: none; // Ocultamos el texto ya que ahora usamos una imagen
+    display: none;
   }
 
   h1 {
@@ -125,6 +117,8 @@
   }
 
   .input-group {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 25px;
     position: relative;
   }
@@ -216,7 +210,6 @@
     text-decoration: underline;
   }
 
-  /* --- ESTILOS DE MODALES --- */
   .modal {
     position: fixed;
     z-index: 1000;
@@ -311,21 +304,17 @@
     box-shadow: 0 5px 15px rgba(255,105,180,0.4);
   }
 
-  // Estilo para el mensaje de error del login
   .text-danger {
       color: #d93025;
       text-align: center;
       margin-top: 10px;
-      margin-bottom: 10px;
       font-weight: 500;
   }
 
-  /* --- DISEÑO RESPONSIVE --- */
   @media (max-width: 968px) {
     .left-section {
       display: none;
     }
-
     .right-section {
       flex: 1;
       width: 100%;

@@ -1,5 +1,93 @@
-<div class="container mt-5">
-  <h2>Bienvenido al sistema Tienda Amiga</h2>
-  <p class="text-muted">Selecciona una opción del menú lateral</p>
-  <a routerLink="/caja" class="btn btn-outline-primary">Ir al módulo de caja</a>
+<div class="container-fluid g-0">
+  <div class="d-flex vh-100">
+
+    <div class="sidebar">
+      <div class="logo-section">
+        <div class="logo-title">Ropa Típica Mishell</div>
+        <img src="/assets/images/logo-mishell.jpg" alt="Logo Mishell" class="logo-img">
+      </div>
+
+      <div class="menu">
+        <div class="menu-item" [class.active]="activePage === 'dashboard'" (click)="showPage('dashboard')">
+          <div class="menu-item-content">
+            <i class="menu-icon-placeholder"></i> <span>DASHBOARD</span>
+          </div>
+        </div>
+
+        <div class="menu-item" (click)="toggleSubmenu('caja')">
+          <div class="menu-item-content">
+            <i class="menu-icon-placeholder"></i> <span>CAJA</span>
+          </div>
+          <span class="arrow" [class.rotate]="openSubmenus['caja']">▼</span>
+        </div>
+        <div class="submenu" [class.show]="openSubmenus['caja']">
+          <div class="submenu-item" (click)="showPage('apertura-caja')">
+            <span>→</span> Apertura de caja
+          </div>
+          <div class="submenu-item" (click)="showPage('cierre-caja')">
+            <span>→</span> Cierre de caja
+          </div>
+        </div>
+
+        <div class="menu-item" (click)="toggleSubmenu('articulos')">
+            <div class="menu-item-content">
+                <i class="menu-icon-placeholder"></i> <span>ARTÍCULOS</span>
+            </div>
+            <span class="arrow" [class.rotate]="openSubmenus['articulos']">▼</span>
+        </div>
+        <div class="submenu" [class.show]="openSubmenus['articulos']">
+            </div>
+
+        <div class="menu-item" (click)="toggleSubmenu('productos')">
+            <div class="menu-item-content">
+                <i class="menu-icon-placeholder"></i> <span>PRODUCTOS</span>
+            </div>
+            <span class="arrow" [class.rotate]="openSubmenus['productos']">▼</span>
+        </div>
+        <div class="submenu" [class.show]="openSubmenus['productos']">
+             </div>
+
+        <div class="menu-item" (click)="toggleSubmenu('inventario')">
+            <div class="menu-item-content">
+                <i class="menu-icon-placeholder"></i> <span>INVENTARIO</span>
+            </div>
+            <span class="arrow" [class.rotate]="openSubmenus['inventario']">▼</span>
+        </div>
+        <div class="submenu" [class.show]="openSubmenus['inventario']">
+            </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="header">
+        <div class="user-info">
+          <div class="user-name">
+            <div class="user-name-text">{{ usuario }}</div>
+            <div class="user-role">Admin</div>
+          </div>
+          <div class="user-avatar">
+            <i class="user-icon-placeholder"></i> </div>
+        </div>
+      </div>
+
+      <div class="content-area">
+        <div class="page" [class.active]="activePage === 'dashboard'">
+          <h1 class="page-title">Bienvenido a Ropa Típica Mishell</h1>
+          <div class="dashboard-image">
+            <img src="/assets/images/logo-mishell.jpg" alt="Logo Principal Mishell">
+          </div>
+        </div>
+
+        <div class="page" [class.active]="activePage === 'apertura-caja'">
+          <h1 class="page-title">APERTURA DE CAJA</h1>
+          <p style="text-align: center;">Formulario de Apertura de Caja irá aquí.</p>
+        </div>
+
+        <div class="page" [class.active]="activePage === 'cierre-caja'">
+          <h1 class="page-title">CIERRE DE CAJA</h1>
+          <p style="text-align: center;">Contenido de Cierre de Caja irá aquí.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

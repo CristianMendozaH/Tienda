@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -9,13 +9,28 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  usuario = localStorage.getItem('usuario') || 'Administrador';
+export class DashboardComponent implements OnInit {
+  usuario: string = 'Administrador';
+  activePage: string = 'dashboard';
+  openSubmenus: { [key: string]: boolean } = {};
 
   constructor(private router: Router) {}
 
-  logout() {
+  ngOnInit(): void {
+    this.usuario = localStorage.getItem('usuario') || 'Administrador';
+  }
+
+  showPage(page: string): void {
+    this.activePage = page;
+  }
+
+  toggleSubmenu(menuId: string): void {
+    this.openSubmenus[menuId] = !this.openSubmenus[menuId];
+  }
+
+  logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
     this.router.navigate(['/login']);
   }
 }
