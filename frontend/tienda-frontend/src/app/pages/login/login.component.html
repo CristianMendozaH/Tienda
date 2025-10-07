@@ -1,0 +1,99 @@
+<div class="container-wrapper">
+  <div class="left-section">
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-title">Ropa Típica</div>
+        <div class="showcase-subtitle">Traje Tradicional</div>
+      </div>
+      <div class="slogan-text">
+        Tradición y Color en cada Prenda
+      </div>
+    </div>
+  </div>
+
+  <div class="right-section">
+    <div class="login-container">
+      <div class="logo-container">
+        <div class="logo">
+          <div class="logo-text">ROPA<br>TÍPICA<br>Mishell</div>
+        </div>
+        <h1>Ropa Típica Mishell</h1>
+        <p class="subtitle">Inicia sesión para continuar</p>
+      </div>
+
+      <form (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <label for="email">Correo electrónico</label>
+          <div class="input-wrapper">
+            <span class="input-icon">📧</span>
+            <input
+              type="email"
+              id="email"
+              placeholder="correo@ejemplo.com"
+              name="correoElectronico"
+              [(ngModel)]="credentials.correoElectronico"
+              required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              placeholder="••••••"
+              name="password"
+              [(ngModel)]="credentials.password"
+              required>
+            <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+              {{ showPassword ? '🙈' : '👁️' }}
+            </button>
+          </div>
+        </div>
+
+        <p *ngIf="error" class="text-danger mt-2 text-center">{{ error }}</p>
+
+        <button type="submit" class="login-btn">Ingresar</button>
+
+        <div class="forgot-password">
+          <a (click)="openForgotPassword()">¿Olvidaste tu contraseña?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isForgotPasswordModalVisible">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Recuperar Contraseña</h2>
+      <button class="close" (click)="closeForgotPassword()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Ingresa tu correo y te enviaremos instrucciones para restablecer tu contraseña.</p>
+      <div class="input-group">
+        <label for="recoveryEmail">Correo electrónico</label>
+        <div class="input-wrapper">
+          <span class="input-icon">📧</span>
+          <input type="email" id="recoveryEmail" placeholder="correo@ejemplo.com">
+        </div>
+      </div>
+    </div>
+    <button class="modal-btn" (click)="sendRecovery()">Enviar instrucciones</button>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isSuccessModalVisible">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>✓ ¡Bienvenido!</h2>
+      <button class="close" (click)="redirectToDashboard()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Has iniciado sesión correctamente. Serás redirigido al panel principal.</p>
+    </div>
+    <button class="modal-btn" (click)="redirectToDashboard()">Continuar</button>
+  </div>
+</div>

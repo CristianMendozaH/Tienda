@@ -1,0 +1,334 @@
+// Contenedor principal que encapsula todos los estilos del componente.
+.container-wrapper {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  // Estilos para que el componente ocupe toda la pantalla
+  display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+
+  .left-section {
+    flex: 1;
+    // IMAGEN DE FONDO INTEGRADA
+    background-image: url('/assets/images/tienda-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .left-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // Un degradado suave para que el texto resalte sobre el fondo
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 218, 224, 0.1));
+  }
+
+  .showcase {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+  }
+
+  .showcase-image {
+    display: none; // Ocultamos la imagen vacía del HTML
+  }
+
+  .showcase-text {
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+  }
+
+  .right-section {
+    flex: 1;
+    background: linear-gradient(135deg, #FFB6C1 0%, #FFE4E1 50%, #FFC0CB 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .login-container {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  form {
+    width: 100%;
+    text-align: left;
+  }
+
+  .logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(255,105,180,0.3);
+    // IMAGEN DEL LOGO INTEGRADA
+    background-image: url('/assets/images/logo-mishell.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .logo-text {
+    display: none; // Ocultamos el texto ya que ahora usamos una imagen
+  }
+
+  h1 {
+    color: #FF1493;
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .input-group {
+    margin-bottom: 25px;
+    position: relative;
+  }
+
+  .input-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 15px;
+    color: #999;
+    font-size: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #FF69B4;
+    box-shadow: 0 0 0 3px rgba(255,105,180,0.1);
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+    padding: 5px;
+  }
+
+  .toggle-password:hover {
+    color: #FF69B4;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,105,180,0.4);
+  }
+
+  .forgot-password {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .forgot-password a {
+    color: #FF69B4;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+
+  /* --- ESTILOS DE MODALES --- */
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .modal-header h2 {
+    color: #FF1493;
+    font-size: 24px;
+  }
+
+  .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .close:hover {
+    color: #FF1493;
+  }
+
+  .modal-body {
+    margin-bottom: 20px;
+  }
+
+  .modal-body p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .modal-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,105,180,0.4);
+  }
+
+  // Estilo para el mensaje de error del login
+  .text-danger {
+      color: #d93025;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-weight: 500;
+  }
+
+  /* --- DISEÑO RESPONSIVE --- */
+  @media (max-width: 968px) {
+    .left-section {
+      display: none;
+    }
+
+    .right-section {
+      flex: 1;
+      width: 100%;
+    }
+  }
+}

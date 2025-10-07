@@ -1,0 +1,108 @@
+# ================================================
+# ⚙️ .NET / C# Backend (Tienda)
+# ================================================
+
+# Build folders
+bin/
+obj/
+out/
+debug/
+release/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.vs/
+
+# Backup & logs
+*.log
+*.bak
+*.orig
+*.tmp
+*.old
+
+# Configuration files (local only)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Test.json
+
+# Environment variables
+.env
+.env.*
+
+# Publish artifacts
+/publish/
+/dist/
+/build/
+
+# Entity Framework
+Migrations/
+*.dbmdl
+
+# Database files
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# IDEs
+.vscode/
+.idea/
+*.ncrunchsolution
+*.ncrunchproject
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker
+docker-compose.override.yml
+*.pid
+*.seed
+*.tar
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# ================================================
+# 🧩 Custom project rules (Tienda backend)
+# ================================================
+
+# Compiled migrations
+/Tienda/Migrations/bin/
+/Tienda/Migrations/obj/
+
+# Generated files
+/Tienda/bin/
+/Tienda/obj/
+
+# Output of Swagger
+swagger.json
+swagger.yaml
+
+# Database dump
+*.sql
+*.dump
+
+# ================================================
+# 🧠 Notes
+# ================================================
+# Keep these files tracked:
+# - appsettings.json        ✅ base config
+# - Program.cs              ✅ main startup file
+# - *.cs files              ✅ all source code
+# - *.csproj                ✅ project definition
+# ================================================

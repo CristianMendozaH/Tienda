@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h2 class="text-center mb-4">{{ titulo }}</h2>
+
+    <div class="mb-3">
+      <button class="btn btn-success me-2" (click)="registrarVenta('efectivo', 100)">💵 Venta en efectivo</button>
+      <button class="btn btn-primary" (click)="registrarVenta('tarjeta', 150)">💳 Venta con tarjeta</button>
+    </div>
+
+    <div class="mt-4">
+      <p><strong>Ventas de hoy:</strong> {{ ventasHoy }}</p>
+      <p><strong>Total en efectivo:</strong> Q{{ totalEfectivo }}</p>
+      <p><strong>Total en tarjeta:</strong> Q{{ totalTarjeta }}</p>
+    </div>
+  </div>
+</div>
