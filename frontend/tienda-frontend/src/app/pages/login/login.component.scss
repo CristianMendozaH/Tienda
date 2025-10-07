@@ -11,7 +11,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; // Esta propiedad estaba ocultando el modal
   position: fixed;
   top: 0;
   left: 0;
@@ -39,22 +39,21 @@
     background: linear-gradient(135deg, rgba(255,182,193,0.3) 0%, rgba(255,218,224,0.3) 100%);
   }
 
-  /* --- ESTILOS ACTUALIZADOS --- */
   .showcase {
     position: relative;
     z-index: 1;
     text-align: center;
     max-width: 600px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
-    padding: 20px 30px; /* Espacio interior */
-    border-radius: 15px; /* Bordes redondeados */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 30px;
+    border-radius: 15px;
   }
 
   .showcase-text {
-    color: #FFFFFF; /* Color de texto blanco puro */
-    font-size: 32px; /* Tamaño de letra más grande */
-    font-weight: bold; /* Letra en negrita */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra para realce */
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   }
 
   .right-section {
@@ -97,10 +96,6 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 30px rgba(255,105,180,0.3);
-  }
-
-  .logo-text {
-    display: none;
   }
 
   h1 {
@@ -169,10 +164,6 @@
     padding: 5px;
   }
 
-  .toggle-password:hover {
-    color: #FF69B4;
-  }
-
   .login-btn {
     width: 100%;
     padding: 15px;
@@ -185,8 +176,6 @@
     cursor: pointer;
     transition: all 0.3s;
     margin-top: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
   }
 
   .login-btn:hover {
@@ -206,118 +195,95 @@
     cursor: pointer;
   }
 
-  .forgot-password a:hover {
-    text-decoration: underline;
-  }
-
-  .modal {
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    animation: fadeIn 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    animation: slideIn 0.3s;
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .modal-header h2 {
-    color: #FF1493;
-    font-size: 24px;
-  }
-
-  .close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    background: none;
-    padding: 0;
-    line-height: 1;
-  }
-
-  .close:hover {
-    color: #FF1493;
-  }
-
-  .modal-body {
-    margin-bottom: 20px;
-  }
-
-  .modal-body p {
-    color: #666;
-    line-height: 1.6;
-  }
-
-  .modal-btn {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(135deg, #FF69B4, #FF1493);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .modal-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255,105,180,0.4);
-  }
-
   .text-danger {
-      color: #d93025;
-      text-align: center;
-      margin-top: 10px;
-      font-weight: 500;
+    color: #d93025;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
   }
 
   @media (max-width: 968px) {
     .left-section {
       display: none;
     }
-    .right-section {
-      flex: 1;
-      width: 100%;
-    }
+  }
+}
+
+/* --- ESTILOS DEL MODAL (AHORA FUERA DEL CONTENEDOR) --- */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: slideIn 0.3s;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  color: #FF1493;
+  font-size: 24px;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #FF69B4, #FF1493);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
